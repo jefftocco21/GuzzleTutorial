@@ -1,0 +1,20 @@
+<?php
+
+require 'vendor\autoload.php';
+use GuzzleHttp\Client; 
+
+$client = new Client();
+
+$response = $client->request( //method call for Client object,
+    'GET', //type of HTTP request using one of the verbs
+    'http://jsonplaceholder.typicode.com/posts', //url the request is going to, in this case get post with ID of 1
+    [
+        'query' => [
+            'userId' => 1
+        ]
+    ]
+); 
+
+var_dump($response);
+echo $response->getBody();
+?>
